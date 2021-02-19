@@ -33,7 +33,7 @@ class TermExtractionPipeline:
                 self.term_counter[candidate] += 1
 
         for i, pattern in enumerate(TermExtraction.patterns):
-            self.matcher.add("term{}".format(i), add_to_counter, pattern)
+            self.matcher.add("term{}".format(i), [pattern], on_match=add_to_counter)
 
     def __call__(self, doc: Doc):
         self.term_counter = defaultdict(int)

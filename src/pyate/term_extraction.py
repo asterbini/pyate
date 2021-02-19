@@ -24,7 +24,7 @@ Corpus = Union[str, Sequence[str]]
 
 class TermExtraction:
     # TODO: find some way to prevent redundant loading of csv files
-    nlp = spacy.load("en_core_web_sm", parser=False, entity=False)
+    nlp = spacy.load("en_core_web_sm", disable=['parser', 'ner'])
     language = "en"
     MAX_WORD_LENGTH = 6
     DEFAULT_GENERAL_DOMAIN_SIZE = 300
